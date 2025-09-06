@@ -1,1000 +1,1016 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu Mahkota Games</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Mahkota Games</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+      color: #f4f1eb;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 4px;
+      background: linear-gradient(90deg, #d4af37, #f4c430, #d4af37);
+      border-radius: 2px;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #d4af37;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #c4a574;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .gaming-hours {
+      background: linear-gradient(45deg, #1a472a, #2d5a3d);
+      padding: 15px 25px;
+      border-radius: 25px;
+      display: inline-block;
+      border: 2px solid #4ade80;
+      box-shadow: 0 4px 15px rgba(74, 222, 128, 0.2);
+    }
+
+    .gaming-hours i {
+      color: #4ade80;
+      margin-right: 10px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .menu-category {
+      background: linear-gradient(145deg, #3d2817, #2a1c10);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border: 1px solid #5d4037;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-category::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #d4af37, #f4c430, #d4af37);
+    }
+
+    .menu-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.15);
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #4a2c1a;
+      padding-bottom: 10px;
+    }
+
+    .category-title i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #4a2c1a;
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item:hover {
+      background: rgba(212, 175, 55, 0.1);
+      padding-left: 10px;
+      border-radius: 8px;
+    }
+
+    .item-info h3 {
+      color: #f4f1eb;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .item-description {
+      font-size: 0.9rem;
+      color: #a89080;
+      font-style: italic;
+    }
+
+    .item-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #d4af37;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .special-badge {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      margin-left: 8px;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
       }
 
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
-        color: #f4f1eb;
-        line-height: 1.6;
-        min-height: 100vh;
+      50% {
+        opacity: 0.7;
       }
 
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 25px;
+      background: linear-gradient(145deg, #2a1c10, #1a0f08);
+      border-radius: 15px;
+      border: 1px solid #4a2c1a;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #c4a574;
+    }
+
+    .contact-item i {
+      color: #d4af37;
+    }
+
+    @media (max-width: 768px) {
       .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      .header {
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-      }
-
-      .header::before {
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 4px;
-        background: linear-gradient(90deg, #d4af37, #f4c430, #d4af37);
-        border-radius: 2px;
-      }
-
-      .logo {
-        font-size: 2.8rem;
-        font-weight: bold;
-        color: #d4af37;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-      }
-
-      .tagline {
-        font-size: 1.1rem;
-        color: #c4a574;
-        font-style: italic;
-        margin-bottom: 20px;
-      }
-
-      .gaming-hours {
-        background: linear-gradient(45deg, #1a472a, #2d5a3d);
-        padding: 15px 25px;
-        border-radius: 25px;
-        display: inline-block;
-        border: 2px solid #4ade80;
-        box-shadow: 0 4px 15px rgba(74, 222, 128, 0.2);
-      }
-
-      .gaming-hours i {
-        color: #4ade80;
-        margin-right: 10px;
+        padding: 15px;
       }
 
       .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .logo {
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+      }
+
+      .tagline {
+        font-size: 1rem;
+        margin-bottom: 15px;
+      }
+
+      .gaming-hours {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        border-radius: 20px;
       }
 
       .menu-category {
-        background: linear-gradient(145deg, #3d2817, #2a1c10);
-        border-radius: 15px;
-        padding: 25px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        border: 1px solid #5d4037;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .menu-category::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #d4af37, #f4c430, #d4af37);
-      }
-
-      .menu-category:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 35px rgba(212, 175, 55, 0.15);
+        padding: 20px 15px;
+        margin-bottom: 15px;
       }
 
       .category-title {
-        font-size: 1.5rem;
-        color: #d4af37;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid #4a2c1a;
-        padding-bottom: 10px;
-      }
-
-      .category-title i {
-        margin-right: 10px;
         font-size: 1.3rem;
+        margin-bottom: 15px;
       }
 
       .menu-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid #4a2c1a;
-        transition: all 0.3s ease;
-      }
-
-      .menu-item:last-child {
-        border-bottom: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 15px 0;
       }
 
       .menu-item:hover {
-        background: rgba(212, 175, 55, 0.1);
-        padding-left: 10px;
-        border-radius: 8px;
+        padding-left: 0;
+        padding: 15px 10px;
       }
 
       .item-info h3 {
-        color: #f4f1eb;
-        font-size: 1.1rem;
-        margin-bottom: 4px;
+        font-size: 1rem;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
       .item-description {
-        font-size: 0.9rem;
-        color: #a89080;
-        font-style: italic;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        line-height: 1.4;
       }
 
       .item-price {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #d4af37;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        font-size: 1.1rem;
+        align-self: flex-end;
+        background: linear-gradient(45deg, #d4af37, #f4c430);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 900;
       }
 
       .special-badge {
-        background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-        color: white;
-        padding: 3px 8px;
-        border-radius: 12px;
-        font-size: 0.7rem;
-        font-weight: bold;
-        margin-left: 8px;
-        text-transform: uppercase;
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.7;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      .footer {
-        text-align: center;
-        margin-top: 50px;
-        padding: 25px;
-        background: linear-gradient(145deg, #2a1c10, #1a0f08);
-        border-radius: 15px;
-        border: 1px solid #4a2c1a;
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        margin-left: 0;
+        white-space: nowrap;
       }
 
       .contact-info {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-bottom: 15px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 12px;
       }
 
       .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #c4a574;
+        justify-content: center;
+        font-size: 0.9rem;
       }
 
-      .contact-item i {
-        color: #d4af37;
+      .footer {
+        margin-top: 30px;
+        padding: 20px 15px;
       }
 
-      @media (max-width: 768px) {
-        .container {
-          padding: 15px;
-        }
+      .header::before {
+        width: 150px;
+      }
+    }
 
-        .menu-grid {
-          grid-template-columns: 1fr;
-          gap: 20px;
-          margin-top: 30px;
-        }
-
-        .logo {
-          font-size: 2.2rem;
-          margin-bottom: 8px;
-        }
-
-        .tagline {
-          font-size: 1rem;
-          margin-bottom: 15px;
-        }
-
-        .gaming-hours {
-          padding: 12px 20px;
-          font-size: 0.9rem;
-          border-radius: 20px;
-        }
-
-        .menu-category {
-          padding: 20px 15px;
-          margin-bottom: 15px;
-        }
-
-        .category-title {
-          font-size: 1.3rem;
-          margin-bottom: 15px;
-        }
-
-        .menu-item {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
-          padding: 15px 0;
-        }
-
-        .menu-item:hover {
-          padding-left: 0;
-          padding: 15px 10px;
-        }
-
-        .item-info h3 {
-          font-size: 1rem;
-          margin-bottom: 6px;
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .item-description {
-          font-size: 0.85rem;
-          margin-bottom: 8px;
-          line-height: 1.4;
-        }
-
-        .item-price {
-          font-size: 1.1rem;
-          align-self: flex-end;
-          background: linear-gradient(45deg, #d4af37, #f4c430);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          font-weight: 900;
-        }
-
-        .special-badge {
-          font-size: 0.65rem;
-          padding: 2px 6px;
-          margin-left: 0;
-          white-space: nowrap;
-        }
-
-        .contact-info {
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .contact-item {
-          justify-content: center;
-          font-size: 0.9rem;
-        }
-
-        .footer {
-          margin-top: 30px;
-          padding: 20px 15px;
-        }
-
-        .header::before {
-          width: 150px;
-        }
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
       }
 
-      @media (max-width: 480px) {
-        .container {
-          padding: 10px;
-        }
+      .logo {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+      }
 
-        .logo {
-          font-size: 1.8rem;
-          letter-spacing: 1px;
-        }
+      .tagline {
+        font-size: 0.9rem;
+      }
 
-        .tagline {
-          font-size: 0.9rem;
-        }
+      .gaming-hours {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+      }
 
-        .gaming-hours {
-          padding: 10px 15px;
-          font-size: 0.8rem;
-        }
+      .menu-category {
+        padding: 15px 12px;
+        border-radius: 12px;
+      }
 
-        .menu-category {
-          padding: 15px 12px;
-          border-radius: 12px;
-        }
+      .category-title {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
 
-        .category-title {
-          font-size: 1.2rem;
-          margin-bottom: 12px;
-        }
+      .category-title i {
+        font-size: 1.1rem;
+      }
 
-        .category-title i {
-          font-size: 1.1rem;
-        }
+      .menu-item {
+        padding: 12px 0;
+        gap: 6px;
+      }
 
-        .menu-item {
-          padding: 12px 0;
-          gap: 6px;
-        }
+      .item-info h3 {
+        font-size: 0.95rem;
+      }
 
-        .item-info h3 {
-          font-size: 0.95rem;
-        }
+      .item-description {
+        font-size: 0.8rem;
+      }
 
-        .item-description {
-          font-size: 0.8rem;
-        }
+      .item-price {
+        font-size: 1rem;
+      }
 
-        .item-price {
-          font-size: 1rem;
-        }
+      .special-badge {
+        font-size: 0.6rem;
+        padding: 1px 5px;
+      }
 
-        .special-badge {
-          font-size: 0.6rem;
-          padding: 1px 5px;
-        }
-
-        .header::before {
-          width: 120px;
-          height: 3px;
-        }
-
-        .steam-effect {
-          width: 80px;
-          height: 80px;
-          top: -40px;
-        }
+      .header::before {
+        width: 120px;
+        height: 3px;
       }
 
       .steam-effect {
-        position: absolute;
-        top: -50px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 100px;
-        background: radial-gradient(
-          circle,
+        width: 80px;
+        height: 80px;
+        top: -40px;
+      }
+    }
+
+    .steam-effect {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle,
           rgba(244, 241, 235, 0.1) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        animation: steam 3s ease-in-out infinite;
+          transparent 70%);
+      border-radius: 50%;
+      animation: steam 3s ease-in-out infinite;
+    }
+
+    @keyframes steam {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0) scale(1);
       }
 
-      @keyframes steam {
-        0%,
-        100% {
-          opacity: 0;
-          transform: translateX(-50%) translateY(0) scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: translateX(-50%) translateY(-20px) scale(1.2);
-        }
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-20px) scale(1.2);
       }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <div class="steam-effect"></div>
-        <h1 class="logo"><i class="fas fa-crown"></i> MAHKOTA GAMES</h1>
-        <p class="tagline">Ngopi Sambil Gaming, Rasanya Juara!</p>
-        <div class="gaming-hours">
-          <i class="fas fa-gamepad"></i>
-          <strong>Buka Setiap Hari: 24 JAM</strong>
-        </div>
-      </header>
+    }
+  </style>
+</head>
 
-      <div class="menu-grid">
-        <!-- Minuman -->
-        <div class="menu-category">
-          <h2 class="category-title">
-            <i class="fas fa-coffee"></i>
-            Minuman Mahkota Games
-          </h2>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>
-                Kopi Americano Pilihan
-                <span class="special-badge">Best Seller</span>
-              </h3>
-              <p class="item-description">Kopi hitam dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 3,500</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Alpukat</h3>
-              <p class="item-description">Pop Ice dengan rasa alpukat segar</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Bubble Gum</h3>
-              <p class="item-description">Pop Ice dengan rasa bubble gum</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Anggur</h3>
-              <p class="item-description">
-                Pop Ice anggur dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Adem Sari</h3>
-              <p class="item-description">Adem sari</p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Air Putih 600ml</h3>
-              <p class="item-description">Air putih</p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Energen Coklat</h3>
-              <p class="item-description">Energen</p>
-            </div>
-            <div class="item-price">Rp 5,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Coklat</h3>
-              <p class="item-description">Pop Ice dengan rasa coklat</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Duren</h3>
-              <p class="item-description">Pop Ice dengan rasa duren</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Mangga</h3>
-              <p class="item-description">Pop Ice dengan rasa mangga</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Melon</h3>
-              <p class="item-description">Pop Ice dengan rasa melon</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Ice Strawberry</h3>
-              <p class="item-description">Pop Ice dengan rasa strawberry</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Susu Coklat Pilihan</h3>
-              <p class="item-description">
-                Susu coklat dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 6,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Susu Putih Pilihan</h3>
-              <p class="item-description">Susu putih dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 6,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Es Teh Manis</h3>
-              <p class="item-description">Teh manis dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Teh Gula Batu Pilihan</h3>
-              <p class="item-description">
-                Teh gula batu dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Teh Tarik</h3>
-              <p class="item-description">Teh tarik dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 5,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>White Luwak Original</h3>
-              <p class="item-description">
-                White luwak dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Extra Joss</h3>
-              <p class="item-description">Joss dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Good Day Cappuccino</h3>
-              <p class="item-description">Cappuccino dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 5,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Good Day ChocoChino</h3>
-              <p class="item-description">
-                Choco chino dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Good Day Carabian</h3>
-              <p class="item-description">Carabian dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Good Day Freeze</h3>
-              <p class="item-description">Freeze dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 6,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Hilo Choco Avocado</h3>
-              <p class="item-description">
-                Hilo choco avocado dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Hilo Choco Banana</h3>
-              <p class="item-description">
-                Hilo choco banana dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Jeruk Pilihan</h3>
-              <p class="item-description">Jeruk dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 3,500</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Kuku Bima Anggur</h3>
-              <p class="item-description">
-                Kuku bima anggur dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Kopi Moca</h3>
-              <p class="item-description">Kopi moca dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Kopi Americano Tawar</h3>
-              <p class="item-description">
-                Kopi Americano tawar dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Kopi Susu</h3>
-              <p class="item-description">Kopi susu dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 4,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Lemon Tea</h3>
-              <p class="item-description">Lemon tea dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 3,500</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Milo</h3>
-              <p class="item-description">Milo dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 5,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Nutrisari Anggur</h3>
-              <p class="item-description">
-                Nutrisari anggur dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,500</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Nutrisari Strawberry</h3>
-              <p class="item-description">
-                Nutrisari strawberry dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,500</div>
-          </div>
-        </div>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="steam-effect"></div>
+      <h1 class="logo"><i class="fas fa-crown"></i> MAHKOTA GAMES</h1>
+      <p class="tagline">Ngopi Sambil Gaming, Rasanya Juara!</p>
+      <div class="gaming-hours">
+        <i class="fas fa-gamepad"></i>
+        <strong>Buka Setiap Hari: 24 JAM</strong>
+      </div>
+    </header>
 
-        <!-- Makanan -->
-        <div class="menu-category">
-          <h2 class="category-title">
-            <i class="fas fa-utensils"></i>
-            Makanan
-          </h2>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mie Goreng <span class="special-badge">Best Seller</span></h3>
-              <p class="item-description">Mie goreng dengan kualitas premium</p>
-            </div>
-            <div class="item-price">Rp 5,500</div>
+    <div class="menu-grid">
+      <!-- Minuman -->
+      <div class="menu-category">
+        <h2 class="category-title">
+          <i class="fas fa-coffee"></i>
+          Minuman Mahkota Games
+        </h2>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>
+              Kopi Americano Pilihan
+              <span class="special-badge">Best Seller</span>
+            </h3>
+            <p class="item-description">Kopi hitam dengan kualitas premium</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mie Goreng Rendang</h3>
-              <p class="item-description">Mie goreng rendang</p>
-            </div>
-            <div class="item-price">Rp 6,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mie Kuah Kare Ayam</h3>
-              <p class="item-description">Mie kuah kare ayam</p>
-            </div>
-            <div class="item-price">Rp 5,500</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mie Kuah Soto</h3>
-              <p class="item-description">Mie kuah soto</p>
-            </div>
-            <div class="item-price">Rp 5,500</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Pop Mie</h3>
-              <p class="item-description">Pop Mie</p>
-            </div>
-            <div class="item-price">Rp 7,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mie Spaghetti Bolognese</h3>
-              <p class="item-description">Mie spaghetti bolognese</p>
-            </div>
-            <div class="item-price">Rp 6,000</div>
-          </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mie Spaghetti Karbonara</h3>
-              <p class="item-description">Mie spaghetti karbonara</p>
-            </div>
-            <div class="item-price">Rp 6,000</div>
-          </div>
+          <div class="item-price">Rp 3,500</div>
         </div>
-
-        <!-- Rokok -->
-        <div class="menu-category">
-          <h2 class="category-title">
-            <i class="fas fa-cookie-bite"></i>
-            Rokok
-          </h2>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Lucky Strike</h3>
-              <p class="item-description">
-                Rokok lucky strike dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 32,000</div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Alpukat</h3>
+            <p class="item-description">Pop Ice dengan rasa alpukat segar</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>M.Boro Aromatik</h3>
-              <p class="item-description">
-                Rokok m.boro aromatik dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 12,000</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Bubble Gum</h3>
+            <p class="item-description">Pop Ice dengan rasa bubble gum</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>M.Boro Merah Ecer</h3>
-              <p class="item-description">
-                Rokok m.boro merah ecer dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Anggur</h3>
+            <p class="item-description">
+              Pop Ice anggur dengan kualitas premium
+            </p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>M.Boro filter 12</h3>
-              <p class="item-description">
-                Rokok m.boro filter 12 dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 25,500</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Adem Sari</h3>
+            <p class="item-description">Adem sari</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>M.Boro filter 20</h3>
-              <p class="item-description">
-                Rokok m.boro filter 20 dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 41,500</div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Air Putih 600ml</h3>
+            <p class="item-description">Air putih</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>M.Boro filter ecer</h3>
-              <p class="item-description">
-                Rokok m.boro filter ecer dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 2,500</div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Energen Coklat</h3>
+            <p class="item-description">Energen</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mild Merah 16</h3>
-              <p class="item-description">
-                Rokok mild merah 16 dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 37,500</div>
+          <div class="item-price">Rp 5,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Coklat</h3>
+            <p class="item-description">Pop Ice dengan rasa coklat</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Mild merah ecer</h3>
-              <p class="item-description">
-                Rokok mild merah ecer dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 2,500</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Duren</h3>
+            <p class="item-description">Pop Ice dengan rasa duren</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Raptor</h3>
-              <p class="item-description">
-                Rokok raptor dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 18,000</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Mangga</h3>
+            <p class="item-description">Pop Ice dengan rasa mangga</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Samsu 12 ecer</h3>
-              <p class="item-description">
-                Rokok samsu 12 ecer dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 2,500</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Melon</h3>
+            <p class="item-description">Pop Ice dengan rasa melon</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Samsu 12 pak</h3>
-              <p class="item-description">
-                Rokok samsu 12 pak dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 21,000</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Ice Strawberry</h3>
+            <p class="item-description">Pop Ice dengan rasa strawberry</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Samsu Premium</h3>
-              <p class="item-description">
-                Rokok samsu premium dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 20,500</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Susu Coklat Pilihan</h3>
+            <p class="item-description">
+              Susu coklat dengan kualitas premium
+            </p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Surya Ecer <span class="special-badge">Best Seller</span></h3>
-              <p class="item-description">
-                Rokok surya ecer dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 3,000</div>
+          <div class="item-price">Rp 6,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Susu Putih Pilihan</h3>
+            <p class="item-description">Susu putih dengan kualitas premium</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Surya 12 pak</h3>
-              <p class="item-description">
-                Rokok surya 12 pak dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 27,500</div>
+          <div class="item-price">Rp 6,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Es Teh Manis</h3>
+            <p class="item-description">Teh manis dengan kualitas premium</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Dumhil hitam 16</h3>
-              <p class="item-description">
-                Rokok dumhil hitam 16 dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 32,000</div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Teh Gula Batu Pilihan</h3>
+            <p class="item-description">
+              Teh gula batu dengan kualitas premium
+            </p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Gajah Baru</h3>
-              <p class="item-description">
-                Rokok gajah baru dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 18,000</div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Teh Tarik</h3>
+            <p class="item-description">Teh tarik dengan kualitas premium</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Gajah baru kretek</h3>
-              <p class="item-description">
-                Rokok gajah baru kretek dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 10,000</div>
+          <div class="item-price">Rp 5,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>White Luwak Original</h3>
+            <p class="item-description">
+              White luwak dengan kualitas premium
+            </p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Inter pak</h3>
-              <p class="item-description">
-                Rokok inter pak dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 27,000</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Extra Joss</h3>
+            <p class="item-description">Joss dengan kualitas premium</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Korek biasa</h3>
-            </div>
-            <div class="item-price">Rp 1,000</div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Good Day Cappuccino</h3>
+            <p class="item-description">Cappuccino dengan kualitas premium</p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>Korek gas</h3>
-            </div>
-            <div class="item-price">Rp 3,000</div>
+          <div class="item-price">Rp 5,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Good Day ChocoChino</h3>
+            <p class="item-description">
+              Choco chino dengan kualitas premium
+            </p>
           </div>
-          <div class="menu-item">
-            <div class="item-info">
-              <h3>La bold 16</h3>
-              <p class="item-description">
-                Rokok la bold 16 dengan kualitas premium
-              </p>
-            </div>
-            <div class="item-price">Rp 31,500</div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Good Day Carabian</h3>
+            <p class="item-description">Carabian dengan kualitas premium</p>
           </div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Good Day Freeze</h3>
+            <p class="item-description">Freeze dengan kualitas premium</p>
+          </div>
+          <div class="item-price">Rp 6,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Hilo Choco Avocado</h3>
+            <p class="item-description">
+              Hilo choco avocado dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Hilo Choco Banana</h3>
+            <p class="item-description">
+              Hilo choco banana dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Jeruk Pilihan</h3>
+            <p class="item-description">Jeruk dengan kualitas premium</p>
+          </div>
+          <div class="item-price">Rp 3,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Kuku Bima Anggur</h3>
+            <p class="item-description">
+              Kuku bima anggur dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Kopi Moca</h3>
+            <p class="item-description">Kopi moca dengan kualitas premium</p>
+          </div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Kopi Americano Tawar</h3>
+            <p class="item-description">
+              Kopi Americano tawar dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Kopi Susu</h3>
+            <p class="item-description">Kopi susu dengan kualitas premium</p>
+          </div>
+          <div class="item-price">Rp 4,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Lemon Tea</h3>
+            <p class="item-description">Lemon tea dengan kualitas premium</p>
+          </div>
+          <div class="item-price">Rp 3,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Milo</h3>
+            <p class="item-description">Milo dengan kualitas premium</p>
+          </div>
+          <div class="item-price">Rp 5,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Nutrisari Anggur</h3>
+            <p class="item-description">
+              Nutrisari anggur dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 3,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Nutrisari Strawberry</h3>
+            <p class="item-description">
+              Nutrisari strawberry dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 3,500</div>
         </div>
       </div>
 
-      <footer class="footer">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>0812-3456-7890</span>
+      <!-- Makanan -->
+      <div class="menu-category">
+        <h2 class="category-title">
+          <i class="fas fa-utensils"></i>
+          Makanan
+        </h2>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Goreng <span class="special-badge">Best Seller</span></h3>
+            <p class="item-description">Mie goreng dengan kualitas premium</p>
           </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Jl. Raden Wijaya Kec Sidoarjo, Kel Sidokumpul.</span>
-          </div>
-          <div class="contact-item">
-            <i class="fab fa-instagram"></i>
-            <span>@mahkotagame</span>
-          </div>
+          <div class="item-price">Rp 5,500</div>
         </div>
-        <p style="margin-top: 15px; color: #a89080">
-          "Tempat nongkrong terbaik untuk para gamers sejati! Main game sambil
-          ngopi, dengan harga bersahabat."
-        </p>
-      </footer>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Goreng Indomie Double</h3>
+            <p class="item-description">Mie goreng Indomie double</p>
+          </div>
+          <div class="item-price">Rp 11,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Goreng Rendang</h3>
+            <p class="item-description">Mie goreng rendang</p>
+          </div>
+          <div class="item-price">Rp 6,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Goreng Rendang Double</h3>
+            <p class="item-description">Mie goreng rendang double</p>
+          </div>
+          <div class="item-price">Rp 12,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Kuah Kare Ayam</h3>
+            <p class="item-description">Mie kuah kare ayam</p>
+          </div>
+          <div class="item-price">Rp 5,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Kuah Soto</h3>
+            <p class="item-description">Mie kuah soto</p>
+          </div>
+          <div class="item-price">Rp 5,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Pop Mie</h3>
+            <p class="item-description">Pop Mie</p>
+          </div>
+          <div class="item-price">Rp 7,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Spaghetti Bolognese</h3>
+            <p class="item-description">Mie spaghetti bolognese</p>
+          </div>
+          <div class="item-price">Rp 6,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mie Spaghetti Karbonara</h3>
+            <p class="item-description">Mie spaghetti karbonara</p>
+          </div>
+          <div class="item-price">Rp 6,000</div>
+        </div>
+      </div>
+
+      <!-- Rokok -->
+      <div class="menu-category">
+        <h2 class="category-title">
+          <i class="fas fa-cookie-bite"></i>
+          Rokok
+        </h2>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Lucky Strike</h3>
+            <p class="item-description">
+              Rokok lucky strike dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 32,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>M.Boro Aromatik</h3>
+            <p class="item-description">
+              Rokok m.boro aromatik dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 12,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>M.Boro Merah Ecer</h3>
+            <p class="item-description">
+              Rokok m.boro merah ecer dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>M.Boro filter 12</h3>
+            <p class="item-description">
+              Rokok m.boro filter 12 dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 25,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>M.Boro filter 20</h3>
+            <p class="item-description">
+              Rokok m.boro filter 20 dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 41,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>M.Boro filter ecer</h3>
+            <p class="item-description">
+              Rokok m.boro filter ecer dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 2,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mild Merah 16</h3>
+            <p class="item-description">
+              Rokok mild merah 16 dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 37,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Mild merah ecer</h3>
+            <p class="item-description">
+              Rokok mild merah ecer dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 2,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Raptor</h3>
+            <p class="item-description">
+              Rokok raptor dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 18,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Samsu 12 ecer</h3>
+            <p class="item-description">
+              Rokok samsu 12 ecer dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 2,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Samsu 12 pak</h3>
+            <p class="item-description">
+              Rokok samsu 12 pak dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 21,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Samsu Premium</h3>
+            <p class="item-description">
+              Rokok samsu premium dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 20,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Surya Ecer <span class="special-badge">Best Seller</span></h3>
+            <p class="item-description">
+              Rokok surya ecer dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Surya 12 pak</h3>
+            <p class="item-description">
+              Rokok surya 12 pak dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 27,500</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Dumhil hitam 16</h3>
+            <p class="item-description">
+              Rokok dumhil hitam 16 dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 32,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Gajah Baru</h3>
+            <p class="item-description">
+              Rokok gajah baru dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 18,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Gajah baru kretek</h3>
+            <p class="item-description">
+              Rokok gajah baru kretek dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 10,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Inter pak</h3>
+            <p class="item-description">
+              Rokok inter pak dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 27,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Korek biasa</h3>
+          </div>
+          <div class="item-price">Rp 1,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>Korek gas</h3>
+          </div>
+          <div class="item-price">Rp 3,000</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <h3>La bold 16</h3>
+            <p class="item-description">
+              Rokok la bold 16 dengan kualitas premium
+            </p>
+          </div>
+          <div class="item-price">Rp 31,500</div>
+        </div>
+      </div>
     </div>
 
-    <script>
-      // Animasi loading sederhana
-      window.addEventListener("load", function () {
-        const menuItems = document.querySelectorAll(".menu-item");
-        menuItems.forEach((item, index) => {
-          item.style.opacity = "0";
-          item.style.transform = "translateY(20px)";
+    <footer class="footer">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>0812-3456-7890</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Jl. Raden Wijaya Kec Sidoarjo, Kel Sidokumpul.</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-instagram"></i>
+          <span>@mahkotagame</span>
+        </div>
+      </div>
+      <p style="margin-top: 15px; color: #a89080">
+        "Tempat nongkrong terbaik untuk para gamers sejati! Main game sambil
+        ngopi, dengan harga bersahabat."
+      </p>
+    </footer>
+  </div>
 
-          setTimeout(() => {
-            item.style.transition = "all 0.6s ease";
-            item.style.opacity = "1";
-            item.style.transform = "translateY(0)";
-          }, index * 100);
-        });
+  <script>
+    // Animasi loading sederhana
+    window.addEventListener("load", function () {
+      const menuItems = document.querySelectorAll(".menu-item");
+      menuItems.forEach((item, index) => {
+        item.style.opacity = "0";
+        item.style.transform = "translateY(20px)";
+
+        setTimeout(() => {
+          item.style.transition = "all 0.6s ease";
+          item.style.opacity = "1";
+          item.style.transform = "translateY(0)";
+        }, index * 100);
+      });
+    });
+
+    // Efek hover pada category
+    const categories = document.querySelectorAll(".menu-category");
+    categories.forEach((category) => {
+      category.addEventListener("mouseenter", function () {
+        this.style.transform = "translateY(-5px) scale(1.02)";
       });
 
-      // Efek hover pada category
-      const categories = document.querySelectorAll(".menu-category");
-      categories.forEach((category) => {
-        category.addEventListener("mouseenter", function () {
-          this.style.transform = "translateY(-5px) scale(1.02)";
-        });
-
-        category.addEventListener("mouseleave", function () {
-          this.style.transform = "translateY(0) scale(1)";
-        });
+      category.addEventListener("mouseleave", function () {
+        this.style.transform = "translateY(0) scale(1)";
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
